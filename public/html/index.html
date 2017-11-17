@@ -32,28 +32,35 @@
         <div class="container" id="map"></div>
         <!-- map -->
 
-        <div>
+        <div id="displayMe">
             <div id="container">
                 <!-- Main Container -->
 
-                <div class="container row" id="mainbody">
-                    <form id="search" style="margin-top: 1em">
-                        <h3 id="label1">Enter a city, country, or zip-code:</h3>
-                        <input id="whatToDo" type="text" placeholder="what..." />
-                        <input id="place" type="text" placeholder="where..." />
-                        <button id="searchBtn">Search</button>
-                    </form>
+                    <div class="container row" id="mainbody">
+                        <form id="search" style="margin-top: 1em">
+                            <h3 id="label1">Enter a city, country, or zip-code:</h3>
 
-                    <div id="displayMe">
-                        <ul >
-                            <li v-for="location in dataList">{{location.name}} | {{location.rating}} | {{location.yelpData}} </li>
-                        </ul>
+                                <input id="whatToDo" type="text" placeholder="what..." />
+                                <input id="place" type="text" placeholder="where..." />
+                                <button id="searchBtn">Search</button>
+
+                        </form>
+                        <div id="accordion" role="tablist">
+                            <div class="card" v-for="(location, index) in dataList">
+                                <div class="card-header" role="tab" v-bind:id="'heading'+index">
+                                <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" v-bind:href="'#collapse'+ index" aria-expanded="false" aria-controls="collapse${i}">{{location.name}} {{location.rating}}</a>
+                                </h5>
+                            </div>
+                            <div v-bind:id="'collapse'+index" class="collapse" role="tabpanel" v-bind:aria-labelledby="'heading'+index" data-parent="#accordion">
+                                <div class="card-body">Latitude: {{location.location.lat}}, Longitute: {{location.location.lng}}</div>
+                            </div>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
 
-
-
-
+                    
                 <footer>Class Project by The META</footer>
             </div>
 
