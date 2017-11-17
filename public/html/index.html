@@ -23,12 +23,13 @@
 
     <!-- Jumbotron -->
     <div class="jumbotron jumbotron-fluid" id="jumbo">
-        <div class="container text-center" id="head1">
-            <h1 id="title1">Travel Genius</h1>
-            <p style="font-size:1.1rem">An app to guide your travels</p>
-            <p>Travel Genius recommends top-rated activities based on a location inputed by the user (Country, City, Zip-Code).</p>
-        </div>
+      <div class="container text-center" id="head1">
+        <h1 id="title1">Travel Genius</h1>
+        <p style="font-size:1.5rem">An app to guide your travels</p>
+        <p>Travel Genius recommends top-rated activities (according to Google and Yelp) based on a location inputed by the user.</p>
+      </div>
     </div>
+
 
     <!-- map -->
     <div class="container">
@@ -38,35 +39,39 @@
     </div>
 
 
-    <div>
-      <!-- Main Container -->
-      <div id="container">
-        <div class="container-fluid row col-xs-12" id="mainbody">
-          <form id="search" style="margin-top: 1em">
-            <h3 id="label1">Enter a city, country, or zip-code:</h3>
-            <input id="whatToDo" type="text" placeholder="what..." />
-            <input id="place" type="text" placeholder="where..." />
-            <button id="searchBtn">Search</button>
-          </form>
+    <!-- Main Container -->
+    <div class="container">
+      <div class="row col-xs-12" id="mainbody">
+        <form id="search">
+          <h3 id="label1">do some travel research</h3>
+          <input id="whatToDo" type="text" placeholder="what do you want to do" size="25"/>
+          <input id="place" type="text" placeholder="where do you want to do it" size="25"/>
+          <button id="searchBtn">Search</button>
+        </form>
 
-        <!-- results -->
-          <div id="displayMe">
-            <ul >
+      <!-- results -->
+        <div id="displayMe" class="container">
+          <div class="row col-xs-12">
+            <ul>
               <li v-for="location in dataList">{{location.name}} | {{location.rating}} | {{location.yelpData}} </li>
             </ul>
           </div>
+        </div>
 
-        </div>  <!-- end of #mainbody -->
+      </div>  <!-- end of #mainbody -->
+    </div>  <!-- end of main container -->
 
 
-
-
-            <footer>Class Project by The META</footer>
-        </div>  <!-- end of main container -->
+    <!-- footer -->
+    <div class="container-fluid">
+      <div class="row col-xs-12">
+        <footer>Class Project by The META</footer>
+      </div>
     </div>
 
-    <!-- places library -->
 
+
+    <!-- places library -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCditWW_QbHS5b178NVjooCD4Fh3QocDBY&libraries=places"></script>
 
 </body>

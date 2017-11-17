@@ -69,12 +69,13 @@ console.log(resultsArr, 'result maian 68');
 
 
 
-       var displayDetails = new Vue({
-           el:'#displayMe',
-           data:{
-             dataList : dataFromServer
-             }
-       });
+
+   var displayDetails = new Vue({
+       el:'#displayMe',
+       data:{
+         dataList : dataFromServer
+         }
+   });
 
 
     });
