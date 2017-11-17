@@ -31,32 +31,38 @@
     </div>
 
     <!-- map -->
-    <div class="container" id="map"></div>
+    <div class="container">
+      <div class="row col-xs-12">
+        <div id="map"></div>
+      </div>
+    </div>
+
 
     <div>
-        <div id="container">  <!-- Main Container -->
+      <!-- Main Container -->
+      <div id="container">
+        <div class="container-fluid row col-xs-12" id="mainbody">
+          <form id="search" style="margin-top: 1em">
+            <h3 id="label1">Enter a city, country, or zip-code:</h3>
+            <input id="whatToDo" type="text" placeholder="what..." />
+            <input id="place" type="text" placeholder="where..." />
+            <button id="searchBtn">Search</button>
+          </form>
 
-            <div class="container row" id="mainbody">
-                <form id="search" style="margin-top: 1em">
-                    <h3 id="label1">Enter a city, country, or zip-code:</h3>
-                    <input id="whatToDo" type="text" placeholder="what..." />
-                    <input id="place" type="text" placeholder="where..." />
-                    <button id="searchBtn">Search</button>
-                </form>
+        <!-- results -->
+          <div id="displayMe">
+            <ul >
+              <li v-for="location in dataList">{{location.name}} | {{location.rating}} | {{location.yelpData}} </li>
+            </ul>
+          </div>
 
-                <div id="displayMe">
-                    <ul >
-                        <li v-for="location in dataList">{{location.name}} | {{location.rating}} | {{location.yelpData}} </li>
-                    </ul>
-                </div>
-            </div>
+        </div>  <!-- end of #mainbody -->
 
 
 
 
             <footer>Class Project by The META</footer>
-        </div>
-
+        </div>  <!-- end of main container -->
     </div>
 
     <!-- places library -->

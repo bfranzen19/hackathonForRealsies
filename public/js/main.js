@@ -4,7 +4,7 @@ $(document).ready(function() {
 
   var map = new google.maps.Map(document.getElementById('map'),{
     center: {lat:40.0149856, lng:-105.2705456},
-    zoom: 10,
+    zoom: 3,
     mapTypeId: 'terrain'
   });
 
