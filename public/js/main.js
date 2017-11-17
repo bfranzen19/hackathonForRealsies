@@ -1,3 +1,5 @@
+
+
 // jQuery
 $(document).ready(function() {
   console.log('js is linked')
@@ -7,6 +9,10 @@ $(document).ready(function() {
     zoom: 3,
     mapTypeId: 'terrain'
   });
+
+  var inpPlace = document.getElementById('place')
+  var autocomplete = new google.maps.places.Autocomplete(inpPlace);
+  autocomplete.bindTo('bounds', map);
 
 
 /*
@@ -33,9 +39,41 @@ $(document).ready(function() {
   //marks.push(marker);
 */
 
-  var autocomplete = new google.maps.places.Autocomplete(place);
-  autocomplete.bindTo('bounds', map);
 
+
+    // Vue
+var displayDetails = new Vue({
+           el:'#displayMe',
+           data:{
+               dataList : [],
+               panelStrings: []
+           },
+           // methods: {
+           //     addHtml: function(event){
+           //         if (event){
+           //             event.preventDefault();
+           //         }
+           //         console.log('ran');
+           //         console.log(this.dataList[0])
+           //         for(var i =0; i<this.dataList.length;i++){
+           //             this.dataList[i].panelString =
+           //                 `
+           //          <div class="card-header" role="tab" id="heading${i}">
+           //              <h5 class="mb-0">
+           //                  <a class="collapsed" data-toggle="collapse" href="#collaps${i}" aria-expanded="false" aria-controls="collapse${i}">${this.dataList[i].name} ${this.dataList[i].rating}</a>
+           //              </h5>
+           //          </div>
+           //          <div id="collaps${i}" class="collapse" role="tabpanel" aria-labelledby="heading${i}" data-parent="#accordion">
+           //              <div class="card-body">Latitude: ${this.dataList[i].location.lat}, Longitute: ${this.dataList[i].location.lng}</div>
+           //          </div>
+           //      `;
+
+
+           //         };
+           //     }
+           // }
+});
+    // End Vue
 
   $('#searchBtn').on('click', function(event) {
     event.preventDefault();
@@ -61,21 +99,27 @@ resultsArr = dataFromServer.map(function(element){
     map: map
   }));
 
-console.log(resultsArr, 'result maian 68');
+//console.log(resultsArr, 'result maian 68');
 
 });
 
+        // displayDetails.dataList = dataFromServer;
 
 
 
 
 
-   var displayDetails = new Vue({
-       el:'#displayMe',
-       data:{
-         dataList : dataFromServer
-         }
-   });
+   //
+   // var displayDetails = new Vue({
+   //     el:'#displayMe',
+   //     data:{
+   //       dataList : dataFromServer
+   //       }
+   // });
+   //
+   //
+   //      // displayDetails.addHtml();
+   //      console.log(displayDetails.dataList);
 
 
     });

@@ -30,7 +30,6 @@
       </div>
     </div>
 
-
     <!-- map -->
     <div class="container">
       <div class="row col-xs-12">
@@ -39,27 +38,65 @@
     </div>
 
 
+    <!-- vue -->
+    <div id="displayMe">
+      <!-- Main Container -->
+      <div class="container">
+        <div class="container row col-xs-12" id="mainbody">
+          <form id="search" style="margin-top: 1em">
+            <h3 id="label1">do some travel research</h3>
+
+              <input id="whatToDo" type="text" placeholder="what (bars, restaurants, cafes...)" size="30"/>
+              <input id="place" type="text" placeholder="where..." size="30"/>
+              <button id="searchBtn">Search</button>
+
+          </form>
+
+      <!-- bootstrap accordion -->
+        <div id="accordion" role="tablist">
+          <div class="card" v-for="(location, index) in dataList">
+            <div class="card-header" role="tab" v-bind:id="'heading'+index">
+              <h5 class="mb-0">
+                <a class="collapsed" data-toggle="collapse" v-bind:href="'#collapse'+ index" aria-expanded="false" v-bind:aria-controls="'collapse'+index">{{location.name}} {{location.rating}}</a>
+              </h5>
+            </div>
+
+            <div v-bind:id="'collapse'+index" class="collapse" role="tabpanel" v-bind:aria-labelledby="'heading'+index" data-parent="#accordion">
+              <div class="card-body">Latitude: {{location.location.lat}}, Longitute: {{location.location.lng}}</div>
+            </div>
+          </div>
+        </div>
+        </div>  <!-- end of #mainbody -->
+      </div>  <!-- end of main container -->
+
+    </div>
+
     <!-- Main Container -->
-    <div class="container">
+    <!-- <div class="container">
       <div class="row col-xs-12" id="mainbody">
         <form id="search">
           <h3 id="label1">do some travel research</h3>
           <input id="whatToDo" type="text" placeholder="what do you want to do" size="25"/>
           <input id="place" type="text" placeholder="where do you want to do it" size="25"/>
           <button id="searchBtn">Search</button>
-        </form>
+        </form> -->
 
       <!-- results -->
-        <div id="displayMe" class="container">
+        <!-- <div id="displayMe" class="container">
           <div class="row col-xs-12">
             <ul>
               <li v-for="location in dataList">{{location.name}} | {{location.rating}} | {{location.yelpData}} </li>
             </ul>
           </div>
-        </div>
+        </div> -->
 
-      </div>  <!-- end of #mainbody -->
-    </div>  <!-- end of main container -->
+
+
+
+]
+
+
+
 
 
     <!-- footer -->
