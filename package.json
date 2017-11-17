@@ -1,0 +1,27 @@
+{
+  "name": "hackathonforrealsies",
+  "version": "1.0.0",
+  "description": "hackathon project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bfranzen19/hackathonForRealsies.git"
+  },
+  "author": "bt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bfranzen19/hackathonForRealsies/issues"
+  },
+  "homepage": "https://github.com/bfranzen19/hackathonForRealsies#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "googleapis": "^22.2.0",
+    "request": "^2.83.0",
+    "yelp-fusion": "^1.0.4"
+  }
+}

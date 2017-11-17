@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Travel Genuis</title>
+    <script src="https://unpkg.com/vue"></script>
+    <!-- jq -->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+
+    <!-- bootsrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- main.js -->
+    <script src="/js/main.js"></script>
+
+    <!-- main.css -->
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+
+
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid" id="jumbo">
+        <div class="container text-center" id="head1">
+            <h1 id="title1">Travel Genius</h1>
+            <p style="font-size:1.1rem">An app to guide your travels</p>
+            <p>Travel Genius recommends top-rated activities based on a location inputed by the user (Country, City, Zip-Code).</p>
+        </div>
+    </div>
+    <div class="container" id="map"></div>
+    <!-- map -->
+
+    <div>
+        <div id="container">
+            <!-- Main Container -->
+
+            <div class="container row" id="mainbody">
+                <form id="search" style="margin-top: 1em">
+                    <h3 id="label1">Enter a city, country, or zip-code:</h3>
+                    <input id="whatToDo" type="text" placeholder="what..." />
+                    <input id="place" type="text" placeholder="where..." />
+                    <button id="searchBtn">Search</button>
+                </form>
+
+                <div id="displayMe">
+                    <ul >
+                        <li v-for="location in dataList">{{location.name}} | {{location.rating}} | {{location.yelpData}} </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+            <footer>Class Project by The META</footer>
+        </div>
+
+    </div>
+
+    <!-- places library -->
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCditWW_QbHS5b178NVjooCD4Fh3QocDBY&libraries=places"></script>
+
+</body>
+
+</html>

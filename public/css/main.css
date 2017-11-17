@@ -1,0 +1,46 @@
+
+#jumbo {
+    color:white;
+    background-image: linear-gradient(to top,#e2954d 0,#D07118 100%);
+}
+#head1 {
+    font-family: helvetica;
+}
+#title1 {
+    font-size: 3rem;
+}
+
+#mainbody {
+    height: 50rem;
+    border: 2px solid black;
+    background: yellow;
+    margin: 5px 10rem 10px 10rem;
+}
+.row1 {
+    background: yellow;
+    height: 15rem;
+}
+
+#label1 {
+    font-family: helvetica;
+    font-size: 1.5rem;
+}
+
+#cityInput, #countryInput, #zipInput {
+    font-family: helvetica;
+}
+
+#cityText, #countryText, #zipText {
+    font-family: helvetica;
+    font-size: 1.1rem;
+}
+
+#citySubmit, #countrySubmit, #zipSubmit {
+    font-family: helvetica;
+    border-radius: 5px;
+}
+
+#map {
+  height: 100%;
+  margin: 5px 10px 15px 10px;
+}
