@@ -30,79 +30,52 @@
         </div>
     </div>
 
-<<<<<<< HEAD
-        <div id="displayMe">
-            <div id="container">
-                <!-- Main Container -->
-
-                    <div class="container row" id="mainbody">
-                        <form id="search" style="margin-top: 1em">
-                            <h3 id="label1">Enter a city, country, or zip-code:</h3>
-
-                                <input id="whatToDo" type="text" placeholder="what..." />
-                                <input id="place" type="text" placeholder="where..." />
-                                <button id="searchBtn">Search</button>
-
-                        </form>
-                        <div id="accordion" role="tablist">
-                            <div class="card" v-for="(location, index) in dataList">
-                                <div class="card-header" role="tab" v-bind:id="'heading'+index">
-                                <h5 class="mb-0">
-                                    <a class="collapsed" data-toggle="collapse" v-bind:href="'#collapse'+ index" aria-expanded="false" aria-controls="collapse${i}">{{location.name}} {{location.rating}}</a>
-                                </h5>
-                            </div>
-                            <div v-bind:id="'collapse'+index" class="collapse" role="tabpanel" v-bind:aria-labelledby="'heading'+index" data-parent="#accordion">
-                                <div class="card-body">Latitude: {{location.location.lat}}, Longitute: {{location.location.lng}}</div>
-                            </div>
-                            </div>
-                        </div>
-=======
+    
     <!-- map -->
     <div class="container">
-      <div class="row col-xs-12">
-        <div id="map"></div>
-      </div>
+        <div class="row col-xs-12">
+            <div id="map"></div>
+        </div>
     </div>
 
+    <div id="displayMe">
+        <div id="container">
+            <!-- Main Container -->
+<!-- hi -->
+                <div class="container row" id="mainbody">
+                    <form id="search" style="margin-top: 1em">
+                        <h3 id="label1">Enter a city, country, or zip-code:</h3>
 
-    <div>
-      <!-- Main Container -->
-      <div id="container">
-        <div class="container-fluid row col-xs-12" id="mainbody">
-          <form id="search" style="margin-top: 1em">
-            <h3 id="label1">Enter a city, country, or zip-code:</h3>
-            <input id="whatToDo" type="text" placeholder="what..." />
-            <input id="place" type="text" placeholder="where..." />
-            <button id="searchBtn">Search</button>
-          </form>
+                            <input id="whatToDo" type="text" placeholder="what..." />
+                            <input id="place" type="text" placeholder="where..." />
+                            <button id="searchBtn" >Search</button>
 
-        <!-- results -->
-          <div id="displayMe">
-            <ul >
-              <li v-for="location in dataList">{{location.name}} | {{location.rating}} | {{location.yelpData}} </li>
-            </ul>
-          </div>
-
-        </div>  <!-- end of #mainbody -->
->>>>>>> eb02ebac0e7205d4f8d6feb805472abf3145a00c
-
+                    </form>
+                    <div id="accordion" role="tablist">
+                        <div class="card" v-for="(location, index) in dataList">
+                            <div class="card-header" role="tab" v-bind:id="'heading'+index">
+                            <h5 class="mb-0">
+                                <a class="collapsed" data-toggle="collapse" v-bind:href="'#collapse'+ index" aria-expanded="false" v-bind:aria-controls="'collapse'+index">{{location.name}} {{location.rating}}</a>
+                            </h5>
+                        </div>
+                        <div v-bind:id="'collapse'+index" class="collapse" role="tabpanel" v-bind:aria-labelledby="'heading'+index" data-parent="#accordion">
+                            <div class="card-body">Latitude: {{location.location.lat}}, Longitute: {{location.location.lng}}</div>
+                        </div>
+                        </div>
                     </div>
 
-<<<<<<< HEAD
-                    
-                <footer>Class Project by The META</footer>
-            </div>
-=======
->>>>>>> eb02ebac0e7205d4f8d6feb805472abf3145a00c
+                </div>
 
 
             <footer>Class Project by The META</footer>
-        </div>  <!-- end of main container -->
+        </div>
+
     </div>
 
-    <!-- places library -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- places library -->
 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCditWW_QbHS5b178NVjooCD4Fh3QocDBY&libraries=places"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCditWW_QbHS5b178NVjooCD4Fh3QocDBY&libraries=places"></script>
 
 </body>
 
