@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>Travel Genuis</title>
-        <script src="https://unpkg.com/vue"></script>
-        <!-- jq -->
-        <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<head>
+    <title>Travel Genuis</title>
+    <script src="https://unpkg.com/vue"></script>
+    <!-- jq -->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 
-        <!-- bootsrap -->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- bootsrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-        <!-- main.js -->
-        <script src="/js/main.js"></script>
+    <!-- main.js -->
+    <script src="/js/main.js"></script>
 
-        <!-- main.css -->
-        <link rel="stylesheet" href="/css/main.css">
-    </head>
+    <!-- main.css -->
+    <link rel="stylesheet" href="/css/main.css">
+</head>
 
-    <body>
+<body>
 
 
-        <!-- Jumbotron -->
-        <div class="jumbotron jumbotron-fluid" id="jumbo">
-            <div class="container text-center" id="head1">
-                <h1 id="title1">Travel Genius</h1>
-                <p style="font-size:1.1rem">An app to guide your travels</p>
-                <p>Travel Genius recommends top-rated activities based on a location inputed by the user (Country, City, Zip-Code).</p>
-            </div>
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid" id="jumbo">
+        <div class="container text-center" id="head1">
+            <h1 id="title1">Travel Genius</h1>
+            <p style="font-size:1.1rem">An app to guide your travels</p>
+            <p>Travel Genius recommends top-rated activities based on a location inputed by the user (Country, City, Zip-Code).</p>
         </div>
-        <div class="container" id="map"></div>
-        <!-- map -->
+    </div>
 
+<<<<<<< HEAD
         <div id="displayMe">
             <div id="container">
                 <!-- Main Container -->
@@ -57,17 +56,51 @@
                             </div>
                             </div>
                         </div>
+=======
+    <!-- map -->
+    <div class="container">
+      <div class="row col-xs-12">
+        <div id="map"></div>
+      </div>
+    </div>
+
+
+    <div>
+      <!-- Main Container -->
+      <div id="container">
+        <div class="container-fluid row col-xs-12" id="mainbody">
+          <form id="search" style="margin-top: 1em">
+            <h3 id="label1">Enter a city, country, or zip-code:</h3>
+            <input id="whatToDo" type="text" placeholder="what..." />
+            <input id="place" type="text" placeholder="where..." />
+            <button id="searchBtn">Search</button>
+          </form>
+
+        <!-- results -->
+          <div id="displayMe">
+            <ul >
+              <li v-for="location in dataList">{{location.name}} | {{location.rating}} | {{location.yelpData}} </li>
+            </ul>
+          </div>
+
+        </div>  <!-- end of #mainbody -->
+>>>>>>> eb02ebac0e7205d4f8d6feb805472abf3145a00c
 
                     </div>
 
+<<<<<<< HEAD
                     
                 <footer>Class Project by The META</footer>
             </div>
+=======
+>>>>>>> eb02ebac0e7205d4f8d6feb805472abf3145a00c
 
-        </div>
 
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- places library -->
+            <footer>Class Project by The META</footer>
+        </div>  <!-- end of main container -->
+    </div>
+
+    <!-- places library -->
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCditWW_QbHS5b178NVjooCD4Fh3QocDBY&libraries=places"></script>
 
