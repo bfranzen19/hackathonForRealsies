@@ -26,7 +26,7 @@
         <div class="container text-center" id="head1">
             <h1 id="title1">Travel Genius</h1>
             <p style="font-size:1.1rem">An app to guide your travels</p>
-            <p>Travel Genius recommends top-rated activities based on a location inputed by the user (Country, City, Zip-Code).</p>
+            <p>Travel Genius recommends top-rated activities (according to Google and Yelp)based on a location inputed by the user</p>
         </div>
     </div>
 
@@ -39,15 +39,15 @@
     </div>
 
     <div id="displayMe">
-        <div id="container">
+        <div class="container">
             <!-- Main Container -->
 <!-- hi -->
                 <div class="container row" id="mainbody">
                     <form id="search" style="margin-top: 1em">
-                        <h3 id="label1">Enter a city, country, or zip-code:</h3>
+                        <h3 id="label1">Do Some Travel Research</h3>
 
-                            <input id="whatToDo" type="text" placeholder="what..." />
-                            <input id="place" type="text" placeholder="where..." />
+                            <input id="whatToDo" type="text" placeholder="what (bars, restaurants, cafes..)" size="30" />
+                            <input id="place" type="text" placeholder="where..." size="30" />
                             <button id="searchBtn" >Search</button>
 
                     </form>
@@ -55,7 +55,7 @@
                         <div class="card" v-for="(location, index) in dataList">
                             <div class="card-header" role="tab" v-bind:id="'heading'+index">
                             <h5 class="mb-0">
-                                <a class="collapsed" data-toggle="collapse" v-bind:href="'#collapse'+ index" aria-expanded="false" v-bind:aria-controls="'collapse'+index">{{location.name}} {{location.rating}}</a>
+                                <a class="collapsed" data-toggle="collapse" v-bind:href="'#collapse'+ index" aria-expanded="false" v-bind:aria-controls="'collapse'+index">{{location.name}} (Rating: {{location.rating}})</a>
                             </h5>
                         </div>
                         <div v-bind:id="'collapse'+index" class="collapse" role="tabpanel" v-bind:aria-labelledby="'heading'+index" data-parent="#accordion">

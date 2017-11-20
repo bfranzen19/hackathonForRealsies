@@ -1,21 +1,36 @@
 
 #jumbo {
     color:white;
-    background-image: linear-gradient(to top,#e2954d 0,#D07118 100%);
+    background-image: linear-gradient(to top,#e2954d 25% ,#D07118 40%);
+    text-shadow: 2px 2px 2px black;
+    margin: 0px auto 5px auto;
 }
+
 #head1 {
     font-family: helvetica;
+
 }
 #title1 {
-    font-size: 3rem;
+    font-size: 5rem;
+    padding: 2px auto;
+    /*text-shadow: 2px 2px grey 4px 4px 4px black;*/
+}
+
+#map {
+    height: 40rem;
+    width: 100%;
+    margin: 5px auto 10px 2rem;
+    border: 2px solid black;
 }
 
 #mainbody {
-    height: 50rem;
+    height: 80rem;
     border: 2px solid black;
-    background: yellow;
-    margin: 5px 2rem 10px 2rem;
+    background: #e2954d;
+    margin: 5px auto 10px 0px;
+    width: 100%;
 }
+
 .row1 {
     background: yellow;
     height: 15rem;
@@ -26,22 +41,27 @@
     font-size: 1.5rem;
 }
 
-#cityInput, #countryInput, #zipInput {
-    font-family: helvetica;
+input {
+    text-align: center;
+    margin: 2px auto;
 }
 
-#cityText, #countryText, #zipText {
-    font-family: helvetica;
-    font-size: 1.1rem;
+footer {
+    padding: 10px;
+    font-size: 0.75rem;
 }
 
-#citySubmit, #countrySubmit, #zipSubmit {
-    font-family: helvetica;
-    border-radius: 5px;
+ul {
+    list-style: none;
 }
 
-#map {
-  height: 50rem;
-  width: 100%;
-  margin: 5px auto 15px auto;
+h3 {
+    font-weight: bold;
+    text-align: center;
+}
+.card {
+    font-size: 18px;
+}
+h5 {
+    font-size: 18px;
 }
