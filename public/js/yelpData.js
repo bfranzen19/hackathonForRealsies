@@ -28,9 +28,9 @@ class Yelp {
 }
 
 exports.processYelpData = function (location) {
-  //  console.log('yelpdata 31', location);
+    //  console.log('yelpdata 31', location);
     var yelpLoc = new Yelp(location.id, location.name, location.image_url, location.url, location.review_count, location.rating, location.coordinates, location.location)
-  //  console.log('yelpdata 33', yelpLoc);
+    //  console.log('yelpdata 33', yelpLoc);
 
     return (yelpLoc);
 }

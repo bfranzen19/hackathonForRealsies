@@ -1,7 +1,6 @@
-
 #jumbo {
-    color:white;
-    background-image: linear-gradient(to top,#e2954d 25% ,#D07118 40%);
+    color: white;
+    background-image: linear-gradient(to top, #e2954d 25%, #D07118 40%);
     text-shadow: 2px 2px 2px black;
     margin: 0px auto 5px auto;
 }
@@ -10,6 +9,7 @@
     font-family: helvetica;
 
 }
+
 #title1 {
     font-size: 5rem;
     padding: 2px auto;
@@ -17,14 +17,14 @@
 }
 
 #map {
-  height: 40rem;
-  width: 100%;
-  margin: 5px auto 10px 2rem;
-  border: 2px solid black;
+    height: 40rem;
+    width: 100%;
+    margin: 5px auto 10px 2rem;
+    border: 2px solid black;
 }
 
 #mainbody {
-    height: 50rem;
+    height: auto;
     border: 2px solid black;
     background: yellow;
     margin: 5px auto 10px 0px;
@@ -42,20 +42,20 @@
 }
 
 input {
-  text-align: center;
-  margin: 2px auto;
+    text-align: center;
+    margin: 2px auto;
 }
 
 footer {
-  padding: 10px;
-  font-size: 0.75rem;
+    padding: 10px;
+    font-size: 0.75rem;
 }
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 h3 {
-  font-weight: bold;
-  text-align: center;
+    font-weight: bold;
+    text-align: center;
 }

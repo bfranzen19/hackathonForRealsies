@@ -7,9 +7,13 @@
     <!-- jq -->
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 
-    <!-- bootsrap -->
+    <!--     bootsrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+
 
     <!-- main.js -->
     <script src="/js/main.js"></script>
@@ -23,87 +27,68 @@
 
     <!-- Jumbotron -->
     <div class="jumbotron jumbotron-fluid" id="jumbo">
-      <div class="container text-center" id="head1">
-        <h1 id="title1">Travel Genius</h1>
-        <p style="font-size:1.5rem">An app to guide your travels</p>
-        <p>Travel Genius recommends top-rated activities (according to Google and Yelp) based on a location inputed by the user.</p>
-      </div>
+        <div class="container text-center" id="head1">
+            <h1 id="title1">Travel Genius</h1>
+            <p style="font-size:1.5rem">An app to guide your travels</p>
+            <p>Travel Genius recommends top-rated activities (according to Google and Yelp) based on a location inputed by the user.</p>
+        </div>
     </div>
 
     <!-- map -->
     <div class="container">
-      <div class="row col-xs-12">
-        <div id="map"></div>
-      </div>
+        <div class="row col-xs-12">
+            <div id="map"></div>
+        </div>
     </div>
 
 
     <!-- vue -->
     <div id="displayMe">
-      <!-- Main Container -->
-      <div class="container">
-        <div class="container row col-xs-12" id="mainbody">
-          <form id="search" style="margin-top: 1em">
-            <h3 id="label1">do some travel research</h3>
+        <!-- Main Container -->
+        <div class="container">
+            <div class="container row col-xs-12" id="mainbody">
+                <form id="search" style="margin-top: 1em">
+                    <h3 id="label1">do some travel research</h3>
 
-              <input id="whatToDo" type="text" placeholder="what (bars, restaurants, cafes...)" size="30"/>
-              <input id="place" type="text" placeholder="where..." size="30"/>
-              <button id="searchBtn">Search</button>
+                    <input id="whatToDo" type="text" placeholder="what (bars, restaurants, cafes...)" size="30" />
+                    <input id="place" type="text" placeholder="where..." size="30" />
+                    <button id="searchBtn">Search</button>
 
-          </form>
+                </form>
 
-      <!-- bootstrap accordion -->
-        <div id="accordion" role="tablist">
-          <div class="card" v-for="(location, index) in dataList">
-            <div class="card-header" role="tab" v-bind:id="'heading'+index">
-              <h5 class="mb-0">
-                <a class="collapsed" data-toggle="collapse" v-bind:href="'#collapse'+ index" aria-expanded="false" v-bind:aria-controls="'collapse'+index">{{location.name}} {{location.rating}}</a>
-              </h5>
+                <!-- bootstrap accordion -->
+
+                <div id="accordion" role="tablist">
+                    <div class="card" v-for="(location, index) in dataList">
+                        <div class="card-header" role="tab" v-bind:id="'heading'+index">
+                            <h5 class="mb-0">
+                                <button class="collapsed btn btn-primary" data-toggle="collapse" v-bind:href="'#collapse'+ index" aria-expanded="false" v-bind:aria-controls="'collapse'+index">{{location.name}} {{location.rating}}</button>
+                            </h5>
+                        </div>
+
+                        <div v-bind:id="'collapse'+index" class="collapse" role="tabpanel" v-bind:aria-labelledby="'heading'+index" data-parent="#accordion">
+                            <div class="card-text">{{location.googleAddress}} <br>
+                                <button id="yelpSearchBtn" class="btn btn-danger">Show Yelp Info</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--                end bootstrap collapse-->
+
             </div>
-
-            <div v-bind:id="'collapse'+index" class="collapse" role="tabpanel" v-bind:aria-labelledby="'heading'+index" data-parent="#accordion">
-              <div class="card-body">Latitude: {{location.location.lat}}, Longitute: {{location.location.lng}}</div>
-            </div>
-          </div>
+            <!-- end of #mainbody -->
         </div>
-        </div>  <!-- end of #mainbody -->
-      </div>  <!-- end of main container -->
+        <!-- end of main container -->
 
     </div>
-
-    <!-- Main Container -->
-    <!-- <div class="container">
-      <div class="row col-xs-12" id="mainbody">
-        <form id="search">
-          <h3 id="label1">do some travel research</h3>
-          <input id="whatToDo" type="text" placeholder="what do you want to do" size="25"/>
-          <input id="place" type="text" placeholder="where do you want to do it" size="25"/>
-          <button id="searchBtn">Search</button>
-        </form> -->
-
-      <!-- results -->
-        <!-- <div id="displayMe" class="container">
-          <div class="row col-xs-12">
-            <ul>
-              <li v-for="location in dataList">{{location.name}} | {{location.rating}} | {{location.yelpData}} </li>
-            </ul>
-          </div>
-        </div> -->
-
-
-
-
-]
-
-
-
 
 
     <!-- footer -->
     <div class="container-fluid">
-      <div class="row col-xs-12">
-        <footer>Class Project by The META</footer>
-      </div>
+        <div class="row col-xs-12">
+            <footer>Class Project by The META</footer>
+        </div>
     </div>
 
 
@@ -111,6 +96,10 @@
     <!-- places library -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCditWW_QbHS5b178NVjooCD4Fh3QocDBY&libraries=places"></script>
 
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </body>
 
 </html>

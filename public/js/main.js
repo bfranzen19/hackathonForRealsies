@@ -1,6 +1,7 @@
 // jQuery
 $(document).ready(function () {
     console.log('js is linked')
+    $("#accordion").toggle();
 
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {
@@ -62,44 +63,9 @@ $(document).ready(function () {
 
 
 
-    //    // Vue
-    //    var displayDetails = new Vue({
-    //        el: '#displayMe',
-    //        data: {
-    //            dataList: [],
-    //            panelStrings: []
-    //        },
-    //        // methods: {
-    //        //     addHtml: function(event){
-    //        //         if (event){
-    //        //             event.preventDefault();
-    //        //         }
-    //        //         console.log('ran');
-    //        //         console.log(this.dataList[0])
-    //        //         for(var i =0; i<this.dataList.length;i++){
-    //        //             this.dataList[i].panelString =
-    //        //                 `
-    //        //          <div class="card-header" role="tab" id="heading${i}">
-    //        //              <h5 class="mb-0">
-    //        //                  <a class="collapsed" data-toggle="collapse" href="#collaps${i}" aria-expanded="false" aria-controls="collapse${i}">${this.dataList[i].name} ${this.dataList[i].rating}</a>
-    //        //              </h5>
-    //        //          </div>
-    //        //          <div id="collaps${i}" class="collapse" role="tabpanel" aria-labelledby="heading${i}" data-parent="#accordion">
-    //        //              <div class="card-body">Latitude: ${this.dataList[i].location.lat}, Longitute: ${this.dataList[i].location.lng}</div>
-    //        //          </div>
-    //        //      `;
-    //
-    //
-    //        //         };
-    //        //     }
-    //        // }
-    //    });
-    // End Vue
-
     $('#searchBtn').on('click', function (event) {
         event.preventDefault();
 
-        //console.log(event);
         var searchWhatToDo = $('#whatToDo').val();
         var searchPlaceToGo = $('#place').val();
 
@@ -108,13 +74,12 @@ $(document).ready(function () {
             searchPlace: searchPlaceToGo
         }
 
+
         var resultsArr = [];
         $.post('/search', searchTerm, (dataFromServer) => {
             resultsArr = dataFromServer.map(function (element, index) {
 
                 if (index === 0) {
-
-
                     map.setZoom(10);
                     map.setCenter(element.location);
                 }
@@ -127,37 +92,29 @@ $(document).ready(function () {
                 }));
 
             });
-            console.log(resultsArr[0].map, 'result main 125');
 
-
-            // displayDetails.dataList = dataFromServer;
-
-
-            console.log(map, ' main 123')
-
-
-
-
-
-
-            //
             var displayDetails = new Vue({
                 el: '#displayMe',
                 data: {
-                    dataList: dataFromServer
+                    dataList: dataFromServer,
                 },
                 methods: {
-                    collapse: function () {
-                        console.log('Click Me')
+                    getYelp: function (googLoc) {
+                        $.get('/yelpSearch', googLoc, (dataFromServer) => {
+                            console.log(dataFromServer, 'main 104 yelpSearch')
+                        })
                     }
                 }
             });
-            //
-            //
-            //      // displayDetails.addHtml();
-            //      console.log(displayDetails.dataList);
-
-
         });
+
+
+        $("#accordion").toggle();
     });
+
+    $('#yelpSearchBtn').click(function () {
+
+    })
+
+
 }); // end of jQ doc ready
