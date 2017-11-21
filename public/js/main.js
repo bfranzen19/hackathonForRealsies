@@ -5,12 +5,34 @@
 // jQuery
 $(document).ready(function() {
   console.log('js is linked')
+   
 
   var map = new google.maps.Map(document.getElementById('map'),{
     center: {lat:40.0149856, lng:-105.2705456},
-    zoom: 3,
-    mapTypeId: 'terrain'
-  });
+    zoom: 4,
+      mapTypeId: 'terrain',
+      mapTypeControl: true,
+      mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+          position: google.maps.ControlPosition.TOP_CENTER
+      }
+  }, {
+          zoomControl: true,
+          zoomControlOptions: {
+              position: google.maps.ControlPosition.LEFT_CENTER
+          },
+          scaleControl: true,
+          streetViewControl: true,
+          streetViewControlOptions: {
+              position: google.maps.ControlPosition.LEFT_TOP
+          },
+          fullscreenControl: true
+      });
+
+    var inpPlace = document.getElementById('place')
+
+    var autocomplete = new google.maps.places.Autocomplete(inpPlace);
+    autocomplete.bindTo('bounds', map);
 
 
 /*
@@ -36,9 +58,6 @@ $(document).ready(function() {
   });
   //marks.push(marker);
 */
-
-  var autocomplete = new google.maps.places.Autocomplete(place);
-    autocomplete.bindTo('bounds', map);
 
     // Vue
 var displayDetails = new Vue({
@@ -88,25 +107,29 @@ var displayDetails = new Vue({
 
     var resultsArr = [];
     $.post('/search', searchTerm, (dataFromServer) => {
-      //console.log(dataFromServer, 'Server Data');
 
-//console.log(dataFromServer.GooglePlace.location);
+        resultsArr = dataFromServer.map(function(element, index){
+            if(index === 0){
+                map.setZoom(10);
+                map.setCenter(element.location);
+            }
 
-resultsArr = dataFromServer.map(function(element){
-  return(new google.maps.Marker({
-    position: element.location,
-    map: map
-  }));
+            return(new google.maps.Marker({
+                position: element.location,
+                map: map
+            }));
 
-//console.log(resultsArr, 'result maian 68');
-
-});
+    });
 
         displayDetails.dataList = dataFromServer;
 
         // displayDetails.addHtml();
-        console.log(displayDetails.dataList);
+        //console.log(displayDetails.dataList);
 
     });
+
   });
+    $('#yelpSearchBtn').click(function(){
+
+    });
 });  // end of jQ doc ready

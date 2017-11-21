@@ -38,11 +38,11 @@
         </div>
     </div>
 
+    <!-- Vue -->
     <div id="displayMe">
+        <!-- Main Container -->
         <div class="container">
-            <!-- Main Container -->
-<!-- hi -->
-                <div class="container row" id="mainbody">
+                <div class="container row col-xs-12" id="mainbody">
                     <form id="search" style="margin-top: 1em">
                         <h3 id="label1">Do Some Travel Research</h3>
 
@@ -51,6 +51,8 @@
                             <button id="searchBtn" >Search</button>
 
                     </form>
+
+                    <!-- Accordion -->
                     <div id="accordion" role="tablist">
                         <div class="card" v-for="(location, index) in dataList">
                             <div class="card-header" role="tab" v-bind:id="'heading'+index">
@@ -63,17 +65,31 @@
                         </div>
                         </div>
                     </div>
+                    <!-- End Accordion -->
 
                 </div>
+                <!-- End of mainbody -->
 
-
-            <footer>Class Project by The META</footer>
         </div>
+        <!-- End of main container -->
 
     </div>
 
+    <!-- footer -->
+    <div class="container-fluid">
+        <div class="row col-xs-12">
+            <footer>Class Project by The META</footer>
+        </div>
+    </div>
+
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- places library -->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+
+    <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+
+    <!-- places library -->
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCditWW_QbHS5b178NVjooCD4Fh3QocDBY&libraries=places"></script>
 

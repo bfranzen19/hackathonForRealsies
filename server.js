@@ -48,12 +48,11 @@ var searchWhatOrig = null;
 
 // google places api request
 app.post('/search', function(req,res) {
-  //console.log(req.body, 'server 46');
+
 searchPlaceOrig = req.body.searchPlace;
 searchWhatOrig = req.body.searchWhat;
 
 var query2 = req.body.searchWhat + ' ' + req.body.searchPlace;
-console.log(query2,'server 54 q-2')
 
   request({
     url:
@@ -65,10 +64,8 @@ console.log(query2,'server 54 q-2')
       console.log('status code: ', response.statusCode)
       res.send('oops...');
     } else {
-      //console.log(reqQuery);
-      var reqQueryAsObj = JSON.parse(reqQuery);
-      //console.log(reqQueryAsObj.results);
 
+      var reqQueryAsObj = JSON.parse(reqQuery);
       var placeID = reqQueryAsObj.results[0].place_id;
 
       // place details request
@@ -88,19 +85,14 @@ console.log(query2,'server 54 q-2')
           var yelpResults = [];
 
           workArr.forEach(function(element){
-            console.log(element.name, 'server 87');
-            yelpResults = getYelp(element.name);
-            // console.log(yelpResults, 'server 89');
+
+            //yelpResults = getYelp(element.name);
             //var googleLoc = googleStuff.processGoogleData(element, yelpResults);
             var googleLoc = googleStuff.processGoogleData(element);
 
-          console.log(top20, 'top20');
             top20.push(googleLoc);
 
-            //console.log(top20, 'top20 server 112');
-
-
-    });
+          });
 
           // // sends the top20 array back to the main.js
           res.send(top20);
@@ -112,32 +104,68 @@ console.log(query2,'server 54 q-2')
 
 });  // end of google places api get request
 
+
+
+function getYelpBusiness(googPlace) {
+    yelpClient.business('latitude-39.223664&longitude--106.002307').then(response => {
+        console.log(response.jsonBody.name, 'Business Name 119');
+    }).catch(e => {
+        console.log(e);
+    });
+}
+
+function getYelpReviews(googPlace) {
+    //  console.log(googPlace, 'server 143');
+    yelpClient.reviews(`park-bar-fairplay`).then(response => {
+        var yelpReviews = Array.from(response.jsonBody.reviews);
+        var yelpReviewsArr = [];
+
+        yelpReviews.forEach(function (element) {
+            var yelpReview = {
+                name: element.user.name,
+                text: element.text,
+                yelpUrl: element.url
+            };
+
+            yelpReviewsArr.push(yelpReview);
+
+        });
+
+        return (yelpReviewsArr);
+    }).catch(e => {
+        console.log(e);
+    });
+
+}
+
+
+
 function getYelp(googPlace){
   var yelpLocations = [];
  if(searchWhatOrig === ''){
-   searchWhatOrig = 'coffee';
+   searchWhatOrig = 'all';
  }
 
 
     yelpClient.search({
-      term: searchWhatOrig,
-      location: googPlace,
-      limit : 3
+      //term: searchWhatOrig,
+        latitude: 39.223664,
+        longitude: -106.002307,
+        limit : 3,
+        radius: 100
   }).then(response => {
       var yelpDataArr = Array.from(response.jsonBody.businesses);
       yelpDataArr.forEach(function (yelpReturnData) {
         //googleLoc.yelpData = yelpStuff.processYelpData(yelpReturnData);
-       // console.log('server 103', gPlaceData.yelpData);
-      //gPlaceData.yelpData = yelpStuff.processYelpData(yelpReturnData);
-        //console.log(gPlaceData, 'server 100');
+
         yelpLocations.push(yelpStuff.processYelpData(yelpReturnData));
-        //return(gPlaceData);
+
 
       });
-      return(yelpLocations);
-      console.log(yelpLocations, 'yelp locs');
+
       console.log('Sent Something');
       console.log('=-=-=-=-=-=-=-=-=-=-=');
+      return(yelpLocations);
 
   }).catch(e => {
       console.log(e);
